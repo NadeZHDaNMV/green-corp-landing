@@ -8,6 +8,10 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #fff;
   }
   .header__logo {
     height: 30px;
@@ -46,16 +50,20 @@ header {
     background: url('img/back.png') no-repeat;
     background-position: center;
     background-size: cover;
-     }
+  }
   .about__image {
     width: 500px;
   }
-   
   .about__sun-image {
     width: 100px;
     height: 100px;
+    animation: rotation 10s linear infinite;
+    position: absolute;
   }
-
+  @keyframes rotation {
+    0% {transform: rotate(0deg);} 
+    100% {transform: rotate(360deg);}
+  }
   .about h1 {
     font-size: 70px;
     line-height: 76px;
@@ -93,12 +101,12 @@ header {
   .form p {
     font-size: 18px;
     opacity: 0.65px;
-    }
+  }
   .form__group {
     display: flex;
     flex-direction: column;
     text-align: left;
-    }
+  }
   .form form {
     display: grid;
     grid-gap: 20px;
@@ -128,7 +136,7 @@ header {
   .form__submit {
     font-size: 18px;
     font-weight: 600;
-  margin-top: 40px;
+    margin-top: 40px;
   }
   select {
     appearance: none;
@@ -165,3 +173,56 @@ header {
   .footer__links a {
     margin-bottom: 15px;
   }
+  @media (max-width: 1024px) {
+    header, .about, .form footer {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    .about h1 {
+      font-size: 36px;
+      line-height: 40px;
+    }
+    .about__sun-image {
+      width: 75px;
+      height: 75px;
+    }
+    .about__image {
+      width: 280px;
+    }
+  }
+  @media (max-width: 720px) {
+    header {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    header a {
+      margin-right: 10px;
+    }
+    .header__logo {
+      height: 20px;
+    }
+    .about, .form, footer {
+      padding: 50px 10px;
+    }
+    .about {
+      flex-direction: column-reverse;
+    } 
+    .about h1 {
+      font-size: 36px;
+      line-height: 40px;
+    }
+    .about__sun-image {
+      width: 75px;
+      height: 75px;
+    }
+    .about__image {
+      width: 280px;
+    }
+    .form h1 {
+      font-size: 36px;
+      line-height: 40px;
+    }
+    .footer__container {
+      flex-direction: column;
+    }
+  } 
